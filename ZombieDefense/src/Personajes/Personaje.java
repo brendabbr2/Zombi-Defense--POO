@@ -3,13 +3,29 @@ package Personajes;
 import Zombie_Defense.Tablero;
 
 public class Personaje {
-    private int x;
+    private int x; //Coordenadas
     private int y;
-    private int vida;
+    private final int vida;
+    /* 
+    La vida empieza en 5 para todos 
+    y puede seguir subiendo si tienen el item
+    Muere al llegar a cero.
+    */
     private int ataque;
-    final private boolean es_Defensor;
-    private String directorio;
-    public Tablero tablero;
+    /* 
+    El ataque empieza diferente dependiendo 
+    del personaje. 
+    Siendo 1 el más débil y 3 el más fuerte
+        
+       Atacante    Defensor
+    1: Fantasma,    Soldado
+    2: Vampiro,     Guerrero
+    3: Zombie,      Caballero
+    */
+    
+    final private boolean es_Defensor; //Identificador entre personajes
+    private String directorio;        //Lugar de imagen
+    public Tablero tablero;           //Existencia en el tablero
     
     public Personaje(int x, int y, boolean es_Defensor, String directorio, Tablero tablero, int vida, int ataque)
     {
@@ -55,8 +71,15 @@ public class Personaje {
     {
         return y;
     }
-    
-    
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
       /////////////////////////////////////////////Metodos
     public boolean permitirMover(int posX, int posY)
     {

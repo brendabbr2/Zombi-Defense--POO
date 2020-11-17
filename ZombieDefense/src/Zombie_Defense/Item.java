@@ -2,6 +2,11 @@
 package Zombie_Defense;
 //Clase con los items que se pueden obtener
 //Una vez que matan a un atacante
+
+import java.util.concurrent.ThreadLocalRandom;
+
+
+
 public class Item {
     
     public Tablero tablero;
@@ -18,11 +23,10 @@ public class Item {
     
     
     //Setters y getters
-    public Item(int x, int y, String tipo, Tablero tablero)
+    public Item(int x, int y, Tablero tablero)
     {
         this.x = x;
         this.y = y;
-        this.tipo = tipo;
         this.tablero = tablero;
     }
 
@@ -30,8 +34,17 @@ public class Item {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo() {
+        
+        int num = ThreadLocalRandom.current().nextInt(1, 4);
+        //Escogemos el item random
+        if (num == 1) {
+            this.tipo = "Collar";
+        } else if (num == 2){
+            this.tipo = "Flecha";
+        } else {
+            this.tipo = "Abrigo";
+        }
     }
 
     public int getX() {

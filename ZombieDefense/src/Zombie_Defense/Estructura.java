@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Estructura extends JFrame {
     Component component;
-    private final JLabel mensaje = new JLabel("¡Defiende la base de los zombies!              Base");
+    private final JLabel mensaje = new JLabel("¡Defiende la base de los zombies!                                  Base↓");
     public Estructura()
     {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
