@@ -154,6 +154,8 @@ public class Tablero extends JComponent {
         }
         return null;
     }
+    
+    
 
     /////////////////////EL MOUSE/////////////////
     
@@ -161,7 +163,6 @@ public class Tablero extends JComponent {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-
         }
 
         @Override
@@ -174,17 +175,26 @@ public class Tablero extends JComponent {
             boolean en_Turno = true; //Si es nuestro turno de jugar
             
             //Cada cuatro turnos se mueven los zombies
+            //En otras palabras: no jugamos nosotros
             if (contadorTurno%4 == 0 && contadorTurno != 0)
             {
                 en_Turno = false;
             }
               
             
-            //Aquí es cuando el usuario clickea una pieza.
+                                        //Aquí es cuando el usuario clickea una pieza.
             
-            //Primero ocupamos saber quien es el personaje
+            //Primero ocupamos saber quien es el personaje (o si hay)
             Personaje clicked_piece = getPiece(Clicked_Column, Clicked_Row);
             
+            /*
+            Las acciones a realizar dependen de:
+            
+            A quién tenemos clickeado: personajeActual
+            Y a quién acabamos de clickear: clicked_piece
+            
+            Además de si estamos en nuestro turno o no
+            */
             if (personajeActual == null && clicked_piece != null && 
             //Si no hay personaje asigando (clickeado) y clickeamos algo y 
             //es nuestro turno y la pieza clickeada es el defensor       
